@@ -1,7 +1,12 @@
-
 public interface Player {
-    public Move move();
 
+    // Defines the method that each player must use to make a move.
+    Move move();
+
+    // Returns the player's name.
+    String getName();
+
+    // Converts a number into the corresponding Move.
     default Move convert(int choice) {
         switch (choice) {
             case 1:
@@ -11,6 +16,13 @@ public interface Player {
             case 3:
                 return Move.SCISSORS;
         }
+
+        // Return null if the choice is invalid.
         return null;
+    }
+
+    // Displays the player's name and chosen move.
+    default void display(Move choice) {
+        System.out.println(getName() + " chooses: " + choice);
     }
 }
