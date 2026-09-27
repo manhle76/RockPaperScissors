@@ -10,9 +10,9 @@ public class Game {
     // Index 1 = first player, index 2 = second player, index 3 = ties.
     private int[] score;
 
-    public Game(Player firsPlayer, Player seconPlayer) {
-        this.firstPlayer = firsPlayer;
-        this.secondPlayer = seconPlayer;
+    public Game(Player firstPlayer, Player secondPlayer) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
 
         // Create the object that determines the result of each round.
         this.rule = new Rule();
@@ -23,11 +23,11 @@ public class Game {
 
     public void play() {
         // Get the moves from both players.
-        Move firstPalyerMove = firstPlayer.move();
+        Move firstPlayerMove = firstPlayer.move();
         Move secondPlayerMove = secondPlayer.move();
 
         // Determine the result using the game rules.
-        int result = rule.result(firstPalyerMove, secondPlayerMove);
+        int result = rule.result(firstPlayerMove, secondPlayerMove);
 
         // Update the score based on the result.
         score[result]++;
