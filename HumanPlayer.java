@@ -3,9 +3,11 @@ import java.util.Scanner;
 public class HumanPlayer implements Player {
     // Stores the player's name.
     private String name;
+    private Scanner sc;
 
     public HumanPlayer(String name) {
         this.name = name;
+        this.sc = new Scanner(System.in);
     }
 
     // Returns the player's name.
@@ -18,7 +20,7 @@ public class HumanPlayer implements Player {
         System.out.println("Enter your choice: ");
 
         // Create a Scanner to read the player's input.
-        Scanner sc = new Scanner(System.in);
+
         int choiceInInteger = sc.nextInt();
 
         // Keep asking until the player enters a number from 1 to 3.
