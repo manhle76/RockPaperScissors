@@ -3,9 +3,11 @@ import java.util.Random;
 public class ComputerPlayer implements Player {
     // Stores the computer player's name.
     private String name;
+    private Random rd;
 
     public ComputerPlayer(String name) {
         this.name = name;
+        this.rd = new Random();
     }
 
     // Returns the computer player's name.
@@ -15,7 +17,6 @@ public class ComputerPlayer implements Player {
 
     // Randomly selects and returns a move.
     public Move move() {
-        Random rd = new Random();
         // Generate a random number from 1 to 3.
         int choiceInInteger = rd.nextInt(3) + 1;
 
