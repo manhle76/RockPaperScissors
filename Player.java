@@ -1,5 +1,4 @@
 public interface Player {
-
     // Defines the method that each player must use to make a move.
     Move move();
 
@@ -16,7 +15,6 @@ public interface Player {
             case 3:
                 return Move.SCISSORS;
         }
-
         // Return null if the choice is invalid.
         return null;
     }

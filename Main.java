@@ -1,8 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-
         // Create the two players: a human player and a computer player.
-        Player player1 = new HumanPlayer("Humman");
+        Player player1 = new HumanPlayer("Human");
         Player player2 = new ComputerPlayer("Computer");
 
         // Create a game using the two players.
@@ -14,19 +13,14 @@ public class Main {
 
         // Continue playing until all rounds are completed.
         while (start <= numberOfRound) {
-
             // Display the current round number.
-            System.out.println("Round " + start);
-
+            System.out.printf("Round %d - Choose (1=rock, 2=paper, 3=scissors) \n", start);
             // Play one round.
             game.play();
-
             // Display the current score.
             game.displayScore();
-
             // Move to the next round.
             start++;
-
             // Print a separator between rounds.
             System.out.println("----------------------------------------------------");
         }

@@ -16,7 +16,6 @@ public class ComputerPlayer implements Player {
     // Randomly selects and returns a move.
     public Move move() {
         Random rd = new Random();
-
         // Generate a random number from 1 to 3.
         int choiceInInteger = rd.nextInt(3) + 1;
 
