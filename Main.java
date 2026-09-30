@@ -5,7 +5,8 @@ public class Main {
         Player player2 = new ComputerPlayer("Computer");
 
         // Create a game using the two players.
-        Game game = new Game(player1, player2);
+        GameRule rule = new NormalRule();
+        Game game = new Game(player1, player2, rule);
 
         // Set the total number of rounds to play.
         int numberOfRound = 20;

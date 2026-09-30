@@ -1,6 +1,6 @@
 public class Game {
     // Stores the rules used to determine the result of each round.
-    private Rule rule;
+    private GameRule rule;
     // Stores the two players in the game.
     private Player firstPlayer;
     private Player secondPlayer;
@@ -8,21 +8,21 @@ public class Game {
     // Index 1 = first player, index 2 = second player, index 3 = ties.
     private int[] score;
 
-    public Game(Player firsPlayer, Player seconPlayer) {
-        this.firstPlayer = firsPlayer;
-        this.secondPlayer = seconPlayer;
+    public Game(Player firstPlayer, Player secondPlayer, GameRule rule) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer;
         // Create the object that determines the result of each round.
-        this.rule = new Rule();
+        this.rule = rule;
         // Create an array to keep track of the scores.
         this.score = new int[4];
     }
 
     public void play() {
         // Get the moves from both players.
-        Move firstPalyerMove = firstPlayer.move();
+        Move firstPlayerMove = firstPlayer.move();
         Move secondPlayerMove = secondPlayer.move();
         // Determine the result using the game rules.
-        int result = rule.result(firstPalyerMove, secondPlayerMove);
+        int result = rule.result(firstPlayerMove, secondPlayerMove);
         // Update the score based on the result.
         score[result]++;
 

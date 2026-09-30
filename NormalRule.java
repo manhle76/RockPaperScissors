@@ -1,4 +1,4 @@
-public class Rule {
+public class NormalRule implements GameRule {
     // Determines the result of a round.
     // 1 = first player wins, 2 = second player wins, 3 = tie.
     public int result(Move firstPlayer, Move secondPlayer) {
