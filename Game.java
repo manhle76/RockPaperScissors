@@ -5,7 +5,7 @@ public class Game {
     private Player firstPlayer;
     private Player secondPlayer;
     // Stores the number of wins for each player and the number of ties.
-    // Index 1 = first player, index 2 = second player, index 3 = ties.
+    // Index 1 = first player, index 2 = second player, index 0 = ties.
     private int[] score;
 
     public Game(Player firstPlayer, Player secondPlayer, GameRule rule) {
@@ -14,7 +14,7 @@ public class Game {
         // Create the object that determines the result of each round.
         this.rule = rule;
         // Create an array to keep track of the scores.
-        this.score = new int[4];
+        this.score = new int[3];
     }
 
     public void play() {
@@ -41,6 +41,6 @@ public class Game {
         System.out.println("------------SCORE------------");
         System.out.println(firstPlayer.getName() + ": " + score[1]);
         System.out.println(secondPlayer.getName() + ": " + score[2]);
-        System.out.println("Ties: " + score[3]);
+        System.out.println("Ties: " + score[0]);
     }
 }
