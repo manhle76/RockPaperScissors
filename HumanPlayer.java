@@ -21,16 +21,25 @@ public class HumanPlayer implements Player {
 
         // Create a Scanner to read the player's input.
 
-        int choiceInInteger = sc.nextInt();
+        String choiceString = sc.nextLine().trim();
 
         // Keep asking until the player enters a number from 1 to 3.
-        while (choiceInInteger < 1 || choiceInInteger > 3) {
+        while (!choiceString.equalsIgnoreCase("1") && !choiceString.equalsIgnoreCase("2")
+                && !choiceString.equalsIgnoreCase("3")) {
             System.out.println("Please reenter your choice: ");
-            choiceInInteger = sc.nextInt();
+            choiceString = sc.nextLine().trim();
         }
 
+        // int choiceInInteger = sc.nextInt();
+
+        // // Keep asking until the player enters a number from 1 to 3.
+        // while (choiceInInteger < 1 || choiceInInteger > 3) {
+        // System.out.println("Please reenter your choice: ");
+        // choiceInInteger = sc.nextInt();
+        // }
+
         // Convert the integer choice into a Move.
-        Move choice = convert(choiceInInteger);
+        Move choice = convert(Integer.parseInt(choiceString));
 
         // Display the player's choice.
         display(choice);
