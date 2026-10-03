@@ -27,6 +27,10 @@ public class Game {
         // Get the moves from both players.
         Move firstPlayerMove = firstPlayer.move();
         Move secondPlayerMove = secondPlayer.move();
+        storage.storeMove(firstPlayerMove);
+        storage.storeMove(secondPlayerMove);
+
+        storage.createFrequencyFile(5);
 
         // Determine the result using the game rules.
         int result = rule.result(firstPlayerMove, secondPlayerMove);
@@ -41,8 +45,6 @@ public class Game {
         } else {
             System.out.println("Draw!");
         }
-        storage.storeMove(firstPlayerMove);
-        storage.storeMove(secondPlayerMove);
     }
 
     public void displayScore() {

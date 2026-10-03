@@ -2,17 +2,17 @@ import java.util.Scanner;
 
 public class HumanPlayer implements Player {
     // Stores the player's name.
-    private String name;
+    private String namePlayer;
     private Scanner sc;
 
-    public HumanPlayer(String name) {
-        this.name = name;
+    public HumanPlayer(String namePlayer) {
+        this.namePlayer = namePlayer;
         this.sc = new Scanner(System.in);
     }
 
     // Returns the player's name.
-    public String getName() {
-        return this.name;
+    public String getNamePlayer() {
+        return this.namePlayer;
     }
 
     // Gets the player's choice and converts it into a Move.
@@ -29,14 +29,6 @@ public class HumanPlayer implements Player {
             System.out.println("Please reenter your choice: ");
             choiceString = sc.nextLine().trim();
         }
-
-        // int choiceInInteger = sc.nextInt();
-
-        // // Keep asking until the player enters a number from 1 to 3.
-        // while (choiceInInteger < 1 || choiceInInteger > 3) {
-        // System.out.println("Please reenter your choice: ");
-        // choiceInInteger = sc.nextInt();
-        // }
 
         // Convert the integer choice into a Move.
         Move choice = convert(Integer.parseInt(choiceString));

@@ -10,7 +10,6 @@ public class Game {
     // Stores the number of wins for each player and the number of ties.
     // Index 1 = first player, index 2 = second player, index 0 = ties.
     private int[] score;
-    private Storage storage;
 
     public Game(Player firstPlayer, Player secondPlayer, GameRule rule) {
         this.firstPlayer = firstPlayer;
@@ -19,14 +18,14 @@ public class Game {
         this.rule = rule;
         // Create an array to keep track of the scores.
         this.score = new int[3];
-        this.storage = new Storage("sequence.txt");
-        storage.startNewGame();
     }
 
     public void play() {
         // Get the moves from both players.
         Move firstPlayerMove = firstPlayer.move();
+        store(firstPlayerMove);
         Move secondPlayerMove = secondPlayer.move();
+        store(secondPlayerMove);
 
         // Determine the result using the game rules.
         int result = rule.result(firstPlayerMove, secondPlayerMove);
@@ -41,8 +40,6 @@ public class Game {
         } else {
             System.out.println("Draw!");
         }
-        storage.storeMove(firstPlayerMove);
-        storage.storeMove(secondPlayerMove);
     }
 
     public void displayScore() {
@@ -53,4 +50,19 @@ public class Game {
         System.out.println("Ties: " + score[0]);
     }
 
+    public void store(Move move) {
+        try {
+            FileWriter writer = new FileWriter("sequency.txt", true);
+            if (move == Move.ROCK) {
+                writer.write("R");
+            } else if (move == Move.PAPER) {
+                writer.write("P");
+            } else if (move == Move.SCISSORS) {
+                writer.write("S");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

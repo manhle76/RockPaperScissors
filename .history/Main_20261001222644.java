@@ -9,7 +9,7 @@ public class Main {
         Game game = new Game(player1, player2, rule);
 
         // Set the total number of rounds to play.
-        int numberOfRound = 50;
+        int numberOfRound = 20;
         int start = 1;
 
         // Continue playing until all rounds are completed.

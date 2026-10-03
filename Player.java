@@ -3,7 +3,7 @@ public interface Player {
     Move move();
 
     // Returns the player's name.
-    String getName();
+    String getNamePlayer();
 
     // Converts a number into the corresponding Move.
     default Move convert(int choice) {
@@ -21,6 +21,6 @@ public interface Player {
 
     // Displays the player's name and chosen move.
     default void display(Move choice) {
-        System.out.println(getName() + " chooses: " + choice);
+        System.out.println(getNamePlayer() + " chooses: " + choice);
     }
 }

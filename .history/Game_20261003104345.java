@@ -43,6 +43,8 @@ public class Game {
         }
         storage.storeMove(firstPlayerMove);
         storage.storeMove(secondPlayerMove);
+
+        storage.createFrequencyFile(5);
     }
 
     public void displayScore() {

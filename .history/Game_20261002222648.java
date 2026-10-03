@@ -19,14 +19,15 @@ public class Game {
         this.rule = rule;
         // Create an array to keep track of the scores.
         this.score = new int[3];
-        this.storage = new Storage("sequence.txt");
-        storage.startNewGame();
+        this.storage = new Storage("sequency.txt");
     }
 
     public void play() {
         // Get the moves from both players.
         Move firstPlayerMove = firstPlayer.move();
+        storage.storeMove(firstPlayerMove);
         Move secondPlayerMove = secondPlayer.move();
+        storage.storeMove(secondPlayerMove);
 
         // Determine the result using the game rules.
         int result = rule.result(firstPlayerMove, secondPlayerMove);
@@ -41,8 +42,6 @@ public class Game {
         } else {
             System.out.println("Draw!");
         }
-        storage.storeMove(firstPlayerMove);
-        storage.storeMove(secondPlayerMove);
     }
 
     public void displayScore() {
